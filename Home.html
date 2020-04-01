@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="Home.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+     <span class="navbar-toggle" id="js-navbar-toggle">
+            <i class="fa fa-bars"></i>
+        </span>
+        <a href="#" class="logo">MuM</a>
+        <ul class="main-nav" id="js-menu">
+           
+            <li>
+                <a href="#" class="nav-links">Home</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">News</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">About Us</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">Log In</a>
+            </li>
+        </ul>
+</nav>
+<div class="flex-container">
+    <div>
+  <p style class="Text1">Find music </p>
+  <p style class="Text2">you love.</p>
+    </div>
+
+  <div class="form">
+  <form action="/action_page.php">
+    <select id="country" name="country">
+      <option value="australia">Categories:</option>
+      <option value="canada">Rock</option>
+      <option value="usa">Clasica</option>
+    </select>
+   <input type="text" id="fname" name="firstname" placeholder="Artist">
+   <input type="text" id="lname" name="lastname" placeholder="Song">
+   <input type="submit" value="Submit">
+   </form>
+   </div>
+</div>
+<script> 
+let mainNav = document.getElementById('js-menu');
+let navBarToggle = document.getElementById('js-navbar-toggle');
+
+navBarToggle.addEventListener('click', function () {
+  mainNav.classList.toggle('active');
+});
+</script>
+
+</body>
+</html>
