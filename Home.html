@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<title>Home</title>
 <link rel="stylesheet" type="text/css" href="Home.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -35,13 +36,13 @@
 
   <div class="form">
   <form action="/action_page.php">
-    <select id="country" name="country">
-      <option value="australia">Categories:</option>
-      <option value="canada">Rock</option>
-      <option value="usa">Clasica</option>
+    <select class="custom-select">
+      <option>Categories:</option>
+      <option>Rock</option>
+      <option>Classical</option>
     </select>
-   <input type="text" id="fname" name="firstname" placeholder="Artist">
-   <input type="text" id="lname" name="lastname" placeholder="Song">
+   <input type="text"  placeholder="Artist">
+   <input type="text"  placeholder="Song">
    <input type="submit" value="Submit">
    </form>
    </div>
@@ -56,4 +57,3 @@ navBarToggle.addEventListener('click', function () {
 </script>
 
 </body>
-</html>
