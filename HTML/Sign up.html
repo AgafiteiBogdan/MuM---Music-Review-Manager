@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Sign up</title>
+<link rel="stylesheet" type="text/css" href="C:\Users\evapo\OneDrive\Desktop\Proiect\CSS\Sign up.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+     <span class="navbar-toggle" id="js-navbar-toggle">
+            <i class="fa fa-bars"></i>
+        </span>
+        <a href="Home.html" class="logo">MuM</a>
+        <ul class="main-nav" id="js-menu">
+           
+            <li>
+                <a href="Home.html" class="nav-links">Home</a>
+            </li>
+            <li>
+                <a href="News.html" class="nav-links">News</a>
+            </li>
+            <li>
+                <a href="My account.html" class="nav-links">My account</a>
+            </li>
+            <li>
+                <a href="Log in.html" class="nav-links">Log In</a>
+            </li>
+        </ul>
+</nav>
+<div class="flex-container">
+        <div class="signup">
+                <i class="fa fa-user icon" style="font-size: 120px;"></i>
+                <input type="text" placeholder="first name" name="user"><br>
+                <input type="text" placeholder="last name" name="user"><br>
+                <input type="text" placeholder="e-mail" name="user"><br>
+                <input type="text" placeholder="username" name="user"><br>
+                <input type="password" placeholder="password" name="password"><br>
+                <input type="submit" value="Login">
+                
+        </div>
+    </div>
+
+<script> 
+let mainNav = document.getElementById('js-menu');
+let navBarToggle = document.getElementById('js-navbar-toggle');
+
+navBarToggle.addEventListener('click', function () {
+  mainNav.classList.toggle('active');
+});
+</script>
+</body>
+</html>

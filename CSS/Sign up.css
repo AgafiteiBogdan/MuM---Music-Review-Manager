@@ -1,0 +1,197 @@
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+body {
+     font-family: 'Josefin Sans', sans-serif;
+     background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+}
+
+.navbar {
+    font-size: 18px;
+    background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+    border: none;
+    padding-bottom: 10px;
+}
+
+.main-nav {
+    list-style-type: none;
+    display: none;
+}
+
+.nav-links,
+.logo {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.main-nav li {
+    text-align: center;
+    margin: 15px auto;
+}
+
+.logo {
+    display: inline-block;
+    font-size: 35px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.navbar-toggle {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+}
+
+.active {
+    display: block;
+}
+
+@media screen and (min-width: 1000px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0;
+        height: 70px;
+        align-items: center;
+    }
+
+    .main-nav {
+        display: flex;
+        margin-right: 30px;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .main-nav li {
+        margin: 0;
+    }
+
+    .nav-links {
+        margin-left: 40px;
+    }
+
+    .logo {
+        margin-top: 0;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
+
+    .logo:hover,
+    .nav-links:hover {
+        color: rgba(255, 255, 255, 1);
+   
+   }
+     
+
+  }
+/*stilizare formular inscriere**/
+.signup {
+    margin:auto;
+    height: 670px;
+    width: 600px;
+    padding: 10px;
+
+}
+/*stilizare caseta text*/
+.signup input[type=text] {
+    width: 100%;
+    height: 9%;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 10px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+    margin-bottom: 25px;
+}
+/*stilizare caseta parola*/
+.signup input[type=password]{
+    width: 100%;
+    height: 9%;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 10px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+}
+/*stilizare buton submit*/
+.signup input[type=submit]{
+    width: 100%;
+    height: 9%;
+    background: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    color: #a18d6c;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 6px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+/*stilizare hover, focus, placeholder*/
+.login input[type=submit]:hover{
+    opacity: 0.8;
+}
+
+.login input[type=submit]:active{
+    opacity: 0.6;
+}
+
+.login input[type=text]:focus{
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=password]:focus{
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=submit]:focus{
+    outline: none;
+}
+
+::-webkit-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+/*stilizare icnota user*/
+.icon {
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+}
+        
+/*stilizare container*/     
+.flex-container {
+overflow: auto;
+display: flex;
+flex-wrap: wrap;
+margin-left: auto;
+margin-right: auto;
+
+
+}
