@@ -132,7 +132,7 @@ body {
     padding: 4px;
 }
 /*stilizare buton submit*/
-.signup input[type=submit]{
+.signup button[type=submit]{
     width: 100%;
     height: 9%;
     background: #fff;
@@ -183,6 +183,17 @@ body {
   margin-bottom: 20px;
   color: white;
   text-align: center;
+}
+
+.error {
+    width: 100%;
+    margin: 0px auto;
+    padding: 10px;
+    border: 1px solid #a94442;
+    color: #a94442;
+    background: #f2dede;
+    border-radius: 5px;
+    text-align: left;
 }
         
 /*stilizare container*/     

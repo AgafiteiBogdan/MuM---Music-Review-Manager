@@ -1,8 +1,14 @@
+
+<style>
+<?php include 'C:\xampp\htdocs\MuM\CSS\News.css'; ?>
+</style>
+<?php include_once ('connection.php');
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>News</title>
-<link rel="stylesheet" type="text/css" href="C:\Users\evapo\OneDrive\Desktop\Proiect\CSS\News.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="body">
@@ -11,32 +17,32 @@
      <span class="navbar-toggle" id="js-navbar-toggle">
             <i class="fa fa-bars"></i>
         </span>
-        <a href="Home.html" class="logo">MuM</a>
+        <a href="Home.php" class="logo">MuM</a>
         <ul class="main-nav" id="js-menu">
            
             <li>
-                <a href="Home.html" class="nav-links">Home</a>
+                <a href="Home.php" class="nav-links">Home</a>
             </li>
             <li>
-                <a href="News.html" class="nav-links">News</a>
+                <a href="News.php" class="nav-links">News</a>
             </li>
             <li>
-                <a href="My account.html" class="nav-links">My account</a>
+                <a href="My account.php" class="nav-links">My account</a>
             </li>
             <li>
-                <a href="Log in.html" class="nav-links">Log In</a>
+                <a href="Log in.php" class="nav-links">Log In</a>
             </li>
         </ul>
 </nav>
 <div class="flex-container">
 <div class="sidebar" id="sidebar">
-  <a class="active" href="#"><i class="fa fa-fire icon" id="image"></i>News</a>
+  <a class="active" href="News.php"><i class="fa fa-fire icon" id="image"></i>News</a>
   <div style="border-bottom: 1px solid  #D3D3D3;">
   <a href="#"><i class="fa fa-microphone" id="image"></i>Artists</a>
   <a href="#"><i class="fa fa-list-music" id="image"><i class="fa fa-archive" id="image"></i></i>Albums</a>
-  <a href="#"><i class="fa fa-music" id="image"></i>Songs</a>
+  <a href="Songs.php"><i class="fa fa-music" id="image"></i>Songs</a>
   <a href="#"><i class="fa fa-calendar" id="image"></i>Year</a>
-  <a href="#"><i class="fa fa-ellipsis-v" id="image"></i>Categories</a>
+  <a href="Genres.php"><i class="fa fa-ellipsis-v" id="image"></i>Genres</a>
   <a href="#" style="margin-bottom: 10px"><i class="fa fa-bar-chart" id="image"></i>Statistics</a>
   </div>
   <div>
