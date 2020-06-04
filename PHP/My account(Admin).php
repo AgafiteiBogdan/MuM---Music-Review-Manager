@@ -1,4 +1,3 @@
-
 <style>
 <?php include 'C:\xampp\htdocs\MuM\CSS\My Account(L).css'; ?>
 </style>
@@ -21,13 +20,13 @@
         <ul class="main-nav" id="js-menu">
            
             <li>
-                <a href="Home(L).php" class="nav-links">Home</a>
+                <a href="Home(Admin).php" class="nav-links">Home</a>
             </li>
             <li>
-                <a href="News(L).php" class="nav-links">News</a>
+                <a href="News(Admin).php" class="nav-links">News</a>
             </li>
             <li>
-                <a href="My account(L).php" class="nav-links">My account</a>
+                <a href="My account(Admin).php" class="nav-links">My account</a>
             </li>
             <li>
                  <p><a href="My account.php?logout='1'" class="nav-links">Log out</a></p>

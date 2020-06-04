@@ -71,6 +71,7 @@
  </div>
  </div>
 <?php  
+    $sql =  "SELECT a.id as 'id', a.name as 'song', b.name as 'artist', c.name as 'album', c.release_year as 'year', a.genre as 'genre'from artists b join albums c on b.id=c.artist_id  join Songs a on c.id = a.album_id order by a.id, b.name, c.name";
 if(isset($_POST['test'])) {
 
    $option = $_POST['gen'];
@@ -79,8 +80,12 @@ if(isset($_POST['test'])) {
    $sql =  "SELECT a.id as 'id', a.name as 'song', b.name as 'artist', c.name as 'album', c.release_year as 'year', a.genre as 'genre'from artists b join albums c on b.id=c.artist_id  join Songs a on c.id = a.album_id order by a.id, b.name, c.name";
 
    } else {
+     ?>
+     <p style="margin-left: 300px; font-size: 30px; margin-top: 30px;"><?php echo $option ?></p>
+     <?php
    $sql =  "SELECT a.id as 'id', a.name as 'song', b.name as 'artist', c.name as 'album', c.release_year as 'year', a.genre as 'genre'from artists b join albums c on b.id=c.artist_id  join Songs a on c.id = a.album_id where a.genre = '$option' order by a.id, b.name, c.name";
 
+     
 
        }
    }
@@ -110,14 +115,14 @@ if(isset($_POST['test'])) {
                 <td data-target="album"><?php echo $row['album'] ?></td>
                 <td data-target="genre"><?php echo $row['genre'] ?></td>
                  <td>
-                  <button data-id = "<?php echo $row['id'] ?>" style="color:white;  border: none; background-color: #FF4500;  padding: 10px 20px;" type="button" name="Button" onclick = "myModal(<?php echo $row['name'] - 1?>)">Details</button></td> 
+                  <button data-id = "<?php echo $row['id'] ?>" style="color:white;  border: none; background-color: #FF4500;  padding: 10px 20px;" type="button" name="Button" onclick = "myModal(<?php echo $row['id'] -1?>)">Details</button></td> 
 
                   
       <div class="modal" id="myModal">
                  
 <div class="modal-content">
  
-    <span onclick = "closeModal(<?php echo $row['id'] - 1?>)" class="close" >&times;</span>
+    <span onclick = "closeModal(<?php echo $row['id']-1 ?>)" class="close" >&times;</span>
     <div class="container">
   <form action="Songs.php" method="post">
     <input type="hidden" id="id" name="id" required ="required" value="<?php echo $row['id'] ?>">
@@ -203,7 +208,7 @@ if(isset($_POST['test'])) {
         }
         
         // Free result set
-        mysqli_free_result($row['id']);
+        
         mysqli_free_result($result);
     } 
 } else{

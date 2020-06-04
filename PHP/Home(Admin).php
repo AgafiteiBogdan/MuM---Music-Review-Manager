@@ -1,4 +1,3 @@
-
 <style>
 <?php include 'C:\xampp\htdocs\MuM\CSS\Home.css'; ?>
 </style>
@@ -17,16 +16,16 @@
         <ul class="main-nav" id="js-menu">
            
             <li>
-                <a href="Home.php" class="nav-links">Home</a>
+                <a href="Home(Admin).php" class="nav-links">Home</a>
             </li>
             <li>
-                <a href="News.php" class="nav-links">News</a>
+                <a href="News(Admin).php" class="nav-links">News</a>
             </li>
             <li>
                 <a href="My account.php" class="nav-links">My account</a>
             </li>
             <li>
-                <a href="Log in.php" class="nav-links">Log In</a>
+                <a href="My account.php?logout='1'" class="nav-links">Log out</a>
             </li>
         </ul>
 </nav>
@@ -35,37 +34,35 @@
   <p style class="Text1">Find music </p>
   <p style class="Text2">you love.</p>
     </div>
-   <div class="form" method="post" style="width: 700px; margin-left: 50px;" >
+   <div class="form" method="post" style="width: 700px; margin-left: 50px;">
   <form  method="post" action="Home.php">
     <select class="custom-select " name="genre" id="genre">
       <option>Categories:</option>
     <?php 
       $sql = mysqli_query($db, "SELECT DISTINCT genre FROM `songs` where genre != '$genre' order by genre" );
     while ($row = $sql->fetch_assoc()){
-      $option1 = $row['genre'];
-       echo "<option value='$option1'>$option1</option>";
+      $option = $row['genre'];
+       echo "<option value='$option'>$option</option>";
      }
     ?>
     </select>
-   <select  class="custom-select" name="artist" id="artist" >
+   <select class="custom-select" name="artist" id="artist">
       <option>Artist:</option>
-      <script >
-     function showArtists() {
-  <?php  $genre = $_POST['genre'];
-   $sql = mysqli_query($db, "SELECT DISTINCT a.name FROM  artists a join songs s on a.id=s.artist_id  where s.genre = 'pop' " );
+        <?php
+
+    $sql = mysqli_query($db, "SELECT  b.name from artists b join albums c on b.id=c.artist_id  join Songs a on c.id = a.album_id order by b.name");
     while ($row = $sql->fetch_assoc()){
-      $option2 = $row['name'];
+      $option2 = $row['artist'];
        echo "<option value='$option2'>$option2</option>";
-     }
-     ?>
-     showArtists();
-}  </script>
+       }
+      
+    ?>
     </select>
     <select class="custom-select" name="song" id="song">
       <option>Song:</option>
-   
+      <?php echo $option3; ?>
     </select>
-   <input type="submit" value="Submit" name="submit" >
+   <input type="submit" value="Submit" name="submit" />
    </form>
    </div>
 </div>
@@ -76,8 +73,6 @@ let navBarToggle = document.getElementById('js-navbar-toggle');
 navBarToggle.addEventListener('click', function () {
   mainNav.classList.toggle('active');
 });
-
-
 </script>
 </body>
 </html>

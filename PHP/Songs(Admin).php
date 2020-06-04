@@ -27,7 +27,7 @@
                 <a href="My account.php" class="nav-links">My account</a>
             </li>
             <li>
-                <a href="Log in.php" class="nav-links">Log In</a>
+                <a href="Log in.php" class="nav-links">Log out</a>
             </li>
         </ul>
 </nav>
@@ -37,7 +37,7 @@
   <div style="border-bottom: 1px solid  #D3D3D3;">
   <a href="#"><i class="fa fa-microphone" id="image"></i>Artists</a>
   <a href="#"><i class="fa fa-list-music" id="image"><i class="fa fa-archive" id="image"></i></i>Albums</a>
-  <a href="Songs.php" class="active"><i class="fa fa-music" id="image"></i>Songs</a>
+  <a href="Songs(Admin).php" class="active"><i class="fa fa-music" id="image"></i>Songs</a>
   <a href="#"><i class="fa fa-calendar" id="image"></i>Year</a>
   <a href="#"><i class="fa fa-ellipsis-v" id="image"></i>Genres</a>
   <a href="#" style="margin-bottom: 10px"><i class="fa fa-bar-chart" id="image"></i>Statistics</a>
@@ -86,7 +86,7 @@
  
     <span onclick = "closeModal(<?php echo $row['id'] - 1?>)" class="close" >&times;</span>
     <div class="container">
-  <form action="Songs.php" method="post">
+  <form action="Songs(Admin).php" method="post">
     <input type="hidden" id="id" name="id" required ="required" value="<?php echo $row['id'] ?>">
     <div class="row">
       <div class="col-25">

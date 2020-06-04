@@ -78,15 +78,29 @@
 			$query = "SELECT * FROM users WHERE username ='$username' AND password =
 			'$password'";
 			$result = mysqli_query($db, $query);
+
 			if (mysqli_num_rows($result) > 0) {
                 	$_SESSION['username'] = $username;
-	               // $_SESSION['success'] = "You are now logged in";
-                    header('location: My account(L).php');
+	                $_SESSION['success'] = "You are now logged in";
+                 
 
                }else{
                	array_push($errors, "Wrong username/password combination");
 
 				}
+
+				if ($_SESSION['username'] != "ADMIN") {
+				               
+                    header('location: My account(L).php');
+                }
+
+
+			    if ($_SESSION['username'] == 'ADMIN') {
+                    header('location: My account(Admin).php');
+			    }
+                
+
+
 			}
 	    }
 
