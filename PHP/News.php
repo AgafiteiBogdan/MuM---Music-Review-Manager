@@ -38,12 +38,12 @@
 <div class="sidebar" id="sidebar">
   <a class="active" href="News.php"><i class="fa fa-fire icon" id="image"></i>News</a>
   <div style="border-bottom: 1px solid  #D3D3D3;">
-  <a href="#"><i class="fa fa-microphone" id="image"></i>Artists</a>
-  <a href="#"><i class="fa fa-list-music" id="image"><i class="fa fa-archive" id="image"></i></i>Albums</a>
+  <a href="Artists.php"><i class="fa fa-microphone" id="image"></i>Artists</a>
+  <a href="Albums.php"><i class="fa fa-list-music" id="image"><i class="fa fa-archive" id="image"></i></i>Albums</a>
   <a href="Songs.php"><i class="fa fa-music" id="image"></i>Songs</a>
-  <a href="#"><i class="fa fa-calendar" id="image"></i>Year</a>
+  <a href="Year.php"><i class="fa fa-calendar" id="image"></i>Year</a>
   <a href="Genres.php"><i class="fa fa-ellipsis-v" id="image"></i>Genres</a>
-  <a href="#" style="margin-bottom: 10px"><i class="fa fa-bar-chart" id="image"></i>Statistics</a>
+  <a href="Statistics.php" style="margin-bottom: 10px"><i class="fa fa-bar-chart" id="image"></i>Statistics</a>
   </div>
   <div>
   <a href="#" style="margin-top: 10px; padding-left: 30px;">MY INTERESTS</a>

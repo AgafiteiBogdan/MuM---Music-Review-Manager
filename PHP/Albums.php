@@ -1,11 +1,11 @@
 <style>
-<?php include 'C:\xampp\htdocs\MuM\CSS\Songs.css'; ?>
+<?php include 'C:\xampp\htdocs\MuM\CSS\Genres.css'; ?>
 </style>
 <?php $db =  mysqli_connect('localhost', 'root', '', 'mum') or die($db);?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Songs</title>
+<title>Albums</title>
 <meta charset="UTF-8" name="viewport" content="width-device-width, initial-scale=1"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -37,8 +37,8 @@
   <a href="News.php"><i class="fa fa-fire icon" id="image"></i>News</a>
   <div style="border-bottom: 1px solid  #D3D3D3;">
   <a href="Artists.php"><i class="fa fa-microphone" id="image"></i>Artists</a>
-  <a href="Albums.php"><i class="fa fa-list-music" id="image"><i class="fa fa-archive" id="image"></i></i>Albums</a>
-  <a href="Songs.php" class="active"><i class="fa fa-music" id="image"></i>Songs</a>
+  <a href="Albums.php" class="active"><i class="fa fa-list-music" id="image"><i class="fa fa-archive" id="image"></i></i>Albums</a>
+  <a href="Songs.php"><i class="fa fa-music" id="image"></i>Songs</a>
   <a href="Year.php"><i class="fa fa-calendar" id="image"></i>Year</a>
   <a href="Genres.php"><i class="fa fa-ellipsis-v" id="image"></i>Genres</a>
   <a href="Statistics.php" style="margin-bottom: 10px"><i class="fa fa-bar-chart" id="image"></i>Statistics</a>
@@ -51,8 +51,45 @@
   <a href onclick="myFunction()"href="#"><i class="fa fa-clock-o" id="image"></i>Recently Played</a>
   </div>
 </div>
-<?php  $poz = 0;
-       $sql =  "SELECT a.id as 'id', a.name as 'song', b.name as 'artist', c.name as 'album', c.release_year as 'year', a.genre as 'genre'from artists b join albums c on b.id=c.artist_id  join Songs a on c.id = a.album_id order by a.id, b.name, c.name";
+  <?php include 'update.php'?>
+  <div>
+   <form style="width:1500px;" method="POST">
+     <select class="custom-select"  name="album" id="gen" required="required">
+      <option>Choose an album:</option>
+      <?php
+       $sql = mysqli_query($db, "SELECT DISTINCT name FROM `albums` order by name" );
+    while ($row = $sql->fetch_assoc()){
+      $option = $row['name'];
+       echo "<option value='$option'>$option</option>";
+     }
+      ?>
+   </select>
+     <input  style= "background-color: black"class="test" type="submit" value="Search" name="test">
+   </form>
+ </div>
+ </div>
+<?php 
+    $poz = 0;
+    $sql =  "SELECT a.id as 'id', a.name as 'song', b.name as 'artist', c.name as 'album', c.release_year as 'year', a.genre as 'genre'from artists b join albums c on b.id=c.artist_id  join Songs a on c.id = a.album_id order by a.id, b.name, c.name";
+if(isset($_POST['test'])) {
+
+   $option = $_POST['album'];
+
+   if($option == 'Choose an album:') {
+   $sql =  "SELECT a.id as 'id', a.name as 'song', b.name as 'artist', c.name as 'album', c.release_year as 'year', a.genre as 'genre'from artists b join albums c on b.id=c.artist_id  join Songs a on c.id = a.album_id order by a.id, b.name, c.name";
+
+   } else {
+     ?>
+     <p style="margin-left: 300px; font-size: 30px; margin-top: 30px;"><?php echo $option ?></p>
+     <?php
+   $sql =  "SELECT a.id as 'id', a.name as 'song', b.name as 'artist', c.name as 'album', c.release_year as 'year', a.genre as 'genre'from artists b join albums c on b.id=c.artist_id  join Songs a on c.id = a.album_id where c.name = '$option' order by  c.name, b.name";
+
+     
+
+       }
+   }
+
+
  if($result = mysqli_query($db, $sql)){
     if(mysqli_num_rows($result) > 0){
       ?>
@@ -78,12 +115,14 @@
                 <td data-target="genre"><?php echo $row['genre'] ?></td>
                  <td>
                   <button data-id = "<?php echo $row['id'] ?>" style="color:white;  border: none; background-color: #FF4500;  padding: 10px 20px;" type="button" name="Button" onclick = "myModal(<?php echo $poz?>)">Details</button></td> 
+
                   
       <div class="modal" id="myModal">
                  
 <div class="modal-content">
+ 
     <span onclick = "closeModal(<?php echo $poz?>)" class="close" >&times;</span>
-    <?php $poz = $poz + 1;?>
+      <?php $poz = $poz + 1;?>
     <div class="container">
   <form action="Songs.php" method="post">
     <input type="hidden" id="id" name="id" required ="required" value="<?php echo $row['id'] ?>">
@@ -169,10 +208,9 @@
         }
         
         // Free result set
+        
         mysqli_free_result($result);
-    } else{
-        echo "No records matching your query were found.";
-    }
+    } 
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
 }

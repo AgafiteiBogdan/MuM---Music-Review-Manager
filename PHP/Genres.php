@@ -1,6 +1,5 @@
 
 <style>
-
 <?php include 'C:\xampp\htdocs\MuM\CSS\Genres.css'; ?>
 </style>
 <?php $db =  mysqli_connect('localhost', 'root', '', 'mum') or die($db);?>
@@ -38,12 +37,12 @@
 <div class="sidebar" id="sidebar">
   <a href="News.php"><i class="fa fa-fire icon" id="image"></i>News</a>
   <div style="border-bottom: 1px solid  #D3D3D3;">
-  <a href="#"><i class="fa fa-microphone" id="image"></i>Artists</a>
-  <a href="#"><i class="fa fa-list-music" id="image"><i class="fa fa-archive" id="image"></i></i>Albums</a>
+  <a href="Artists.php"><i class="fa fa-microphone" id="image"></i>Artists</a>
+  <a href="Albums.php"><i class="fa fa-list-music" id="image"><i class="fa fa-archive" id="image"></i></i>Albums</a>
   <a href="Songs.php"><i class="fa fa-music" id="image"></i>Songs</a>
-  <a href="#"><i class="fa fa-calendar" id="image"></i>Year</a>
+  <a href="Year.php"><i class="fa fa-calendar" id="image"></i>Year</a>
   <a href="Genres.php" class="active"><i class="fa fa-ellipsis-v" id="image"></i>Genres</a>
-  <a href="#" style="margin-bottom: 10px"><i class="fa fa-bar-chart" id="image"></i>Statistics</a>
+  <a href="Statistics.php" style="margin-bottom: 10px"><i class="fa fa-bar-chart" id="image"></i>Statistics</a>
   </div>
   <div>
   <a href="#" style="margin-top: 10px; padding-left: 30px;">MY INTERESTS</a>
@@ -70,7 +69,8 @@
    </form>
  </div>
  </div>
-<?php  
+<?php 
+    $poz = 0;
     $sql =  "SELECT a.id as 'id', a.name as 'song', b.name as 'artist', c.name as 'album', c.release_year as 'year', a.genre as 'genre'from artists b join albums c on b.id=c.artist_id  join Songs a on c.id = a.album_id order by a.id, b.name, c.name";
 if(isset($_POST['test'])) {
 
@@ -115,14 +115,15 @@ if(isset($_POST['test'])) {
                 <td data-target="album"><?php echo $row['album'] ?></td>
                 <td data-target="genre"><?php echo $row['genre'] ?></td>
                  <td>
-                  <button data-id = "<?php echo $row['id'] ?>" style="color:white;  border: none; background-color: #FF4500;  padding: 10px 20px;" type="button" name="Button" onclick = "myModal(<?php echo $row['id'] -1?>)">Details</button></td> 
+                  <button data-id = "<?php echo $row['id'] ?>" style="color:white;  border: none; background-color: #FF4500;  padding: 10px 20px;" type="button" name="Button" onclick = "myModal(<?php echo $poz?>)">Details</button></td> 
 
                   
       <div class="modal" id="myModal">
                  
 <div class="modal-content">
  
-    <span onclick = "closeModal(<?php echo $row['id']-1 ?>)" class="close" >&times;</span>
+    <span onclick = "closeModal(<?php echo $poz?>)" class="close" >&times;</span>
+      <?php $poz = $poz + 1;?>
     <div class="container">
   <form action="Songs.php" method="post">
     <input type="hidden" id="id" name="id" required ="required" value="<?php echo $row['id'] ?>">
