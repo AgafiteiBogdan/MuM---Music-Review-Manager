@@ -18,18 +18,18 @@
         </span>
         <a href="Home.php" class="logo">MuM</a>
         <ul class="main-nav" id="js-menu">
-           
+
             <li>
-                <a href="Home.php" class="nav-links">Home</a>
+                <a href="Home(L).php" class="nav-links">Home</a>
             </li>
             <li>
-                <a href="News.php" class="nav-links">News</a>
+                <a href="News(L).php" class="nav-links">News</a>
             </li>
             <li>
-                <a href="My account.php" class="nav-links">My account</a>
+                <a href="My account(L).php" class="nav-links">My account</a>
             </li>
             <li>
-                <a href="Log in.php" class="nav-links">Log In</a>
+              <p><a href="My account.php?logout='1'" class="nav-links">Log out</a></p>
             </li>
         </ul>
 </nav>

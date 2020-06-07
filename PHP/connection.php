@@ -1,5 +1,5 @@
 
-<?php 
+<?php
 	if ( ! session_id() ) {
 
 	session_start();
@@ -39,7 +39,7 @@
 	}
 	if(empty($username)) {
        array_push($errors, "Username  is required");
-	}    
+	}
 	if(empty($password)) {
        array_push($errors, "Password  is required");
 	}
@@ -62,14 +62,14 @@
 	  }
 
 
-	} 
+	}
 
 	//logheaza utilizatorul din formularu de log in
     if (isset($_POST['login'])) {
-        
+
     	$username = mysqli_real_escape_string($db,$_POST['username']);
     	$password = mysqli_real_escape_string($db,$_POST['password']);
-       
+
     	if(empty($username)) {
        array_push($errors, "Username  is required");
 		}
@@ -78,7 +78,7 @@
 		}
 
 		if (count($errors) == 0 ) {
-			 
+
 			$query = "SELECT * FROM users WHERE username ='$username' AND password =
 			'$password'";
 			$result = mysqli_query($db, $query);
@@ -86,15 +86,12 @@
 			if (mysqli_num_rows($result) > 0) {
                 	$_SESSION['username'] = $username;
 	                $_SESSION['success'] = "You are now logged in";
-                 
 
-               }else{
-               	array_push($errors, "Wrong username/password combination");
 
-				}
+
 
 				if ($_SESSION['username'] != "ADMIN") {
-				               
+
                     header('location: My account(L).php');
                 }
 
@@ -102,7 +99,12 @@
 			    if ($_SESSION['username'] == 'ADMIN') {
                     header('location: My account(Admin).php');
 			    }
-                
+
+				}
+				else
+				{
+ 				array_push($errors, "Wrong username/password combination");
+ 				}
 
 
 			}
@@ -116,7 +118,7 @@
          $sql = "INSERT INTO `comments` (`user_name`, `song_id`, `text`)
                  VALUES ('$username', '$id', '$comment')";
            mysqli_query($db, $sql);
-        
+
 
        }
 
@@ -134,4 +136,3 @@
 
 
 ?>
-

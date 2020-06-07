@@ -19,7 +19,7 @@
         </span>
         <a href="Home.php" class="logo">MuM</a>
         <ul class="main-nav" id="js-menu">
-           
+
             <li>
                 <a href="Home(L).php" class="nav-links">Home</a>
             </li>
@@ -30,7 +30,7 @@
                 <a href="My account(L).php" class="nav-links">My account</a>
             </li>
             <li>
-                <a href="Log in.php" class="nav-links">Log In</a>
+                <p><a href="My account.php?logout='1'" class="nav-links">Log out</a></p>
             </li>
         </ul>
 </nav>
@@ -69,7 +69,7 @@
    </form>
  </div>
  </div>
-<?php 
+<?php
     $poz = 0;
     $sql =  "SELECT a.id as 'id', a.name as 'song', b.name as 'artist', c.name as 'album', c.release_year as 'year', a.genre as 'genre'from artists b join albums c on b.id=c.artist_id  join Songs a on c.id = a.album_id order by a.id, b.name, c.name";
 if(isset($_POST['test'])) {
@@ -91,7 +91,7 @@ if(isset($_POST['test'])) {
      <p style="margin-left: 300px; font-size: 30px; margin-top: 30px;"><?php echo $option ?></p>
      <?php
    $sql =  "SELECT a.id as 'id', a.name as 'song', b.name as 'artist', c.name as 'album', c.release_year as 'year', a.genre as 'genre'from artists b join albums c on b.id=c.artist_id  join Songs a on c.id = a.album_id where c.release_year between 1970 and 1979 order by c.release_year, b.name, c.name";
-       }  
+       }
     elseif ($option == '80s'){
      ?>
      <p style="margin-left: 300px; font-size: 30px; margin-top: 30px;"><?php echo $option ?></p>
@@ -131,27 +131,27 @@ if(isset($_POST['test'])) {
                 <th>Name</th>
                  <th>Artist </th>
                 <th>Album</th>
-                  <th>Genre</th>                
+                  <th>Genre</th>
                    <th>Details</th>
 
             </thread>
             <?php
-        while($row = mysqli_fetch_array($result)){ ?> 
+        while($row = mysqli_fetch_array($result)){ ?>
             <tr  id="<?php echo $row['id'] ?>">
-                
+
                 <td data-target="id"><?php echo $row['id'] ?></td>
                 <td data-target="song"><?php echo $row['song'] ?></td>
                 <td data-target="artist"><?php echo $row['artist'] ?></td>
                 <td data-target="album"><?php echo $row['album'] ?></td>
                 <td data-target="genre"><?php echo $row['genre'] ?></td>
                  <td>
-                  <button data-id = "<?php echo $row['id'] ?>" style="color:white;  border: none; background-color: #FF4500;  padding: 10px 20px;" type="button" name="Button" onclick = "myModal(<?php echo $poz?>)">Details</button></td> 
+                  <button data-id = "<?php echo $row['id'] ?>" style="color:white;  border: none; background-color: #FF4500;  padding: 10px 20px;" type="button" name="Button" onclick = "myModal(<?php echo $poz?>)">Details</button></td>
 
-                  
+
       <div class="modal" id="myModal">
-                 
+
 <div class="modal-content">
- 
+
     <span onclick = "closeModal(<?php echo $poz?>)" class="close" >&times;</span>
       <?php $poz = $poz + 1;?>
     <div class="container">
@@ -187,7 +187,7 @@ if(isset($_POST['test'])) {
       </div>
       <div class="col-75">
         <input type="text" id="year" name="year" required ="required" value="<?php echo $row['year'] ?>">
-    
+
       </div>
     </div>
     <div class="row">
@@ -196,8 +196,8 @@ if(isset($_POST['test'])) {
       </div>
       <div class="col-75">
         <select id="country" name="genre">
-           <?php 
-    
+           <?php
+
     $genre = $row['genre'];
     $sql = mysqli_query($db, "SELECT DISTINCT genre FROM `songs` where genre = '$genre'");
     while ($row = $sql->fetch_assoc()){
@@ -208,8 +208,8 @@ if(isset($_POST['test'])) {
       $option = $row['genre'];
        echo "<option value='$option'>$option</option>";
     }
-    
-    ?> 
+
+    ?>
         </select>
       </div>
     </div>
@@ -229,22 +229,22 @@ if(isset($_POST['test'])) {
         <textarea id="subject" name="comment" placeholder="Write something.." style="height:100px;"></textarea>
       </div>
     </div>
-     <div class="row">     
+     <div class="row">
       <div style="align-self: : right; margin-right: 50px;">
       <input type="submit" style="margin-top: 20px;" value="Send" name="send">
     </div>
-    </div>      
+    </div>
   </form>
 </div>
 
-<?php 
+<?php
 
         }
-        
+
         // Free result set
-        
+
         mysqli_free_result($result);
-    } 
+    }
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
 }
