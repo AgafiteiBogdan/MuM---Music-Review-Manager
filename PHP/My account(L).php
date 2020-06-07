@@ -39,11 +39,7 @@
 
 <div class="flex-container">
     <img src="user.jpg" class="img"><br>
-    <?php if (isset($_SESSION["username"])): ?>
         <strong style="font-size: 40px;"><?php echo $_SESSION['username']; ?></strong>
-       
-    <?php endif ?>
-
 </div>
 
 <script> 

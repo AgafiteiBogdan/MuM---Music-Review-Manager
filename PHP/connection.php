@@ -1,6 +1,10 @@
 
 <?php 
-    session_start();
+	if ( ! session_id() ) {
+
+	session_start();
+
+	}
     $first_name = "";
     $last_name = "";
     $email = "";
@@ -62,7 +66,7 @@
 
 	//logheaza utilizatorul din formularu de log in
     if (isset($_POST['login'])) {
-   
+        
     	$username = mysqli_real_escape_string($db,$_POST['username']);
     	$password = mysqli_real_escape_string($db,$_POST['password']);
        
@@ -103,6 +107,19 @@
 
 			}
 	    }
+
+	     if (isset($_POST['send'])) {
+
+         $username =  $_SESSION['username'];
+         $id = mysqli_real_escape_string($db,$_POST['id']);
+         $comment = mysqli_real_escape_string($db,$_POST['comment']);
+         $sql = "INSERT INTO `comments` (`user_name`, `song_id`, `text`)
+                 VALUES ('$username', '$id', '$comment')";
+           mysqli_query($db, $sql);
+        
+
+       }
+
 
 	//logout
 	if(isset($_GET['logout'])) {
