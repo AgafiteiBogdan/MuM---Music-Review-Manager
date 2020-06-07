@@ -48,8 +48,8 @@
   <div>
   <a href="#" style="margin-top: 10px; padding-left: 30px;">MY INTERESTS</a>
   <a onclick="myFunction()" href="#"><i class="fa fa-play-circle" id="image"></i>My Playlists</a>
-  <a onclick="myFunction()" href="#" ><i class="fa fa-star" id="image"></i>My favorite artists</a>
-  <a href onclick="myFunction()" href="#"><i class="fa fa-star" id="image"></i>My favorite songs</a>
+  <a href="My favorite artists.php" ><i class="fa fa-star" id="image"></i>My favorite artists</a>
+  <a href="My favorite songs.php"><i class="fa fa-star" id="image"></i>My favorite songs</a>
   <a href onclick="myFunction()"href="#"><i class="fa fa-clock-o" id="image"></i>Recently Played</a>
   </div>
 </div>
@@ -145,7 +145,7 @@ if(isset($_POST['test'])) {
     </div>
 
     <div class="row">
-     
+
     </div>
 
     <div class="row">

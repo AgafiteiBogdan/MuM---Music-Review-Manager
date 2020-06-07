@@ -20,7 +20,7 @@
         </span>
         <a href="Home.php" class="logo">MuM</a>
         <ul class="main-nav" id="js-menu">
-           
+
             <li>
                 <a href="Home.php" class="nav-links">Home</a>
             </li>
@@ -49,8 +49,8 @@
   <div>
   <a href="#" style="margin-top: 10px; padding-left: 30px;">MY INTERESTS</a>
   <a onclick="myFunction()" href="#"><i class="fa fa-play-circle" id="image"></i>My Playlists</a>
-  <a onclick="myFunction()" href="#" ><i class="fa fa-star" id="image"></i>My favorite artists</a>
-  <a href onclick="myFunction()" href="#"><i class="fa fa-star" id="image"></i>My favorite songs</a>
+  <a href="My favorite artists" ><i class="fa fa-star" id="image"></i>My favorite artists</a>
+  <a href="My favorite songs.php"><i class="fa fa-star" id="image"></i>My favorite songs</a>
   <a href onclick="myFunction()"href="#"><i class="fa fa-clock-o" id="image"></i>Recently Played</a>
   </div>
 </div>
@@ -67,27 +67,27 @@
                 <th>Name</th>
                  <th>Artist </th>
                 <th>Album</th>
-                  <th>Genre</th>                
+                  <th>Genre</th>
                    <th>Details</th>
 
             </thread>
             <?php
-        while($row = mysqli_fetch_array($result)){ ?> 
+        while($row = mysqli_fetch_array($result)){ ?>
             <tr  id="<?php echo $row['id'] ?>">
-                
+
                 <td data-target="id"><?php echo $row['id'] ?></td>
                 <td data-target="song"><?php echo $row['song'] ?></td>
                 <td data-target="artist"><?php echo $row['artist'] ?></td>
                 <td data-target="album"><?php echo $row['album'] ?></td>
                 <td data-target="genre"><?php echo $row['genre'] ?></td>
                  <td>
-                  <button data-id = "<?php echo $row['id'] ?>" style="color:white;  border: none; background-color: #FF4500;  padding: 10px 20px;" type="button" name="Button" onclick = "myModal(<?php echo $row['id'] - 1?>)">Details</button></td> 
+                  <button data-id = "<?php echo $row['id'] ?>" style="color:white;  border: none; background-color: #FF4500;  padding: 10px 20px;" type="button" name="Button" onclick = "myModal(<?php echo $row['id'] - 1?>)">Details</button></td>
 
-                  
+
       <div class="modal" id="myModal">
-                 
+
 <div class="modal-content">
- 
+
     <span onclick = "closeModal(<?php echo $row['id'] - 1?>)" class="close" >&times;</span>
     <div class="container">
   <form action="Songs(Admin).php" method="post">
@@ -122,7 +122,7 @@
       </div>
       <div class="col-75">
         <input type="text" id="year" name="year" required ="required" value="<?php echo $row['year'] ?>">
-    
+
       </div>
     </div>
     <div class="row">
@@ -131,8 +131,8 @@
       </div>
       <div class="col-75">
         <select id="country" name="genre">
-           <?php 
-    
+           <?php
+
     $genre = $row['genre'];
     $sql = mysqli_query($db, "SELECT DISTINCT genre FROM `songs` where genre = '$genre'");
     while ($row = $sql->fetch_assoc()){
@@ -143,8 +143,8 @@
       $option = $row['genre'];
        echo "<option value='$option'>$option</option>";
     }
-    
-    ?> 
+
+    ?>
         </select>
       </div>
     </div>
@@ -164,19 +164,19 @@
         <textarea id="subject" name="comment" placeholder="Write something.." style="height:100px;"></textarea>
       </div>
     </div>
-    <div class="row">     
+    <div class="row">
       <div style="align-self: : right; margin-right: 50px;">
       <input type="submit" style="margin-top: 20px;" value="Send" name="send">
     </div>
-    </div>  
-    
+    </div>
+
   </form>
 </div>
 
-<?php 
+<?php
 
         }
-        
+
         // Free result set
         mysqli_free_result($result);
     } else{
