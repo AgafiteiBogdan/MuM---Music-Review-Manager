@@ -1,3 +1,5 @@
+<?php include_once ('connection.php');
+ ?>
 <style>
 <?php include 'C:\xampp\htdocs\MuM\CSS\Genres.css'; ?>
 </style>
@@ -124,7 +126,7 @@ if(isset($_POST['test'])) {
     <span onclick = "closeModal(<?php echo $poz?>)" class="close" >&times;</span>
       <?php $poz = $poz + 1;?>
     <div class="container">
-  <form action="Songs.php" method="post">
+  <form action="Albums(L).php" method="post">
     <input type="hidden" id="id" name="id" required ="required" value="<?php echo $row['id'] ?>">
     <div class="row">
       <div class="col-25">
@@ -134,14 +136,21 @@ if(isset($_POST['test'])) {
      <input type="text" id="song1" name="song" required ="required" value="<?php echo $row['song'] ?>">
       </div>
     </div>
+    <div class = "row">
+        <input type="submit" style="margin-top: 20px;" value="Add song to Favorite" name="favoritesong">
+    </div>
     <div class="row">
       <div class="col-25">
         <label for="atist">Artist</label>
       </div>
       <div class="col-75">
         <input type="text" id="artist" name="artist" required ="required" value="<?php echo $row['artist'] ?>">
-      </div>
     </div>
+
+    <div class="row">
+       <input type="submit" style="margin-top: 20px;" value="Add artist to Favorite" name="FavoriteArtist">
+    </div>
+
     <div class="row">
       <div class="col-25">
         <label for="album">Album</label>

@@ -122,6 +122,27 @@
 
        }
 
+			 if(isset($_POST['favoritesong'])){
+
+				 $username = $_SESSION['username'];
+				 $id = mysqli_real_escape_string($db,$_POST['id']);
+				 $sql = "INSERT INTO `favorite_songs` (`username`, `song_id`)
+								 VALUES ('$username', '$id')";
+					 mysqli_query($db, $sql);
+
+			 }
+
+			 if(isset($_POST['FavoriteArtist'])){
+
+				 $username = $_SESSION['username'];
+				 $name = mysqli_real_escape_string($db,$_POST['artist']);
+				 $sql = "SELECT id FROM artists where name = '$name'";
+				 $id = mysqli_query($db, $sql);
+				 $sql = "INSERT INTO `favorite_artists` (`username`, `artist_id`)
+								 VALUES ('$username', '$id')";
+					 mysqli_query($db, $sql);
+
+			 }
 
 	//logout
 	if(isset($_GET['logout'])) {
