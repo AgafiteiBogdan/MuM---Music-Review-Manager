@@ -3,7 +3,7 @@
 
  $db =  mysqli_connect('localhost', 'root', '', 'mum') or die($db);
  $option = "";
-if(isset($_POST['ok']))
+if(isset($_POST['send']))
  {
     $id = mysqli_real_escape_string($db,$_POST['id']);
     $song = mysqli_real_escape_string($db,$_POST['song']);

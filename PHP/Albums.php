@@ -179,27 +179,25 @@ if(isset($_POST['test'])) {
     }
     
     ?> 
-        </select>
+      </select>
       </div>
     </div>
     <div class="row">
-      <div>
-        <div class="rating">
-<span style="font-size: 22px; margin-right: 144px; margin-top: 20px;">☆</span><span style="font-size: 22px;">☆</span><span style="font-size: 22px;">☆</span><span style="font-size: 22px;">☆</span><span style="font-size: 22px;">☆</span>
- <label for="rating" style="margin-right: 41px;">Rating</label>
-</div>
-  </div>
-</div>
+     <div class="col-25">
+        <label for="song">Rating</label>
+      </div>
+        <div class="col-75">
+      <a href="Log in.php" class="nav-links"><p style="color:green; margin-top: 10px;">You must be logged in to rate a song.</p></a>
+      </div>
+      </div>
     <div class="row">
       <div class="col-25">
         <label for="subject">Comment</label>
       </div>
       <div class="col-75">
-        <textarea id="subject" name="comment" placeholder="Write something.." style="height:100px;"></textarea>
+      <a href="Log in.php" class="nav-links"><p style="color:green; margin-top: 10px;">You must be logged in to post a comment.</p></a>
       </div>
-    </div>
-     
-    
+    </div>   
   </form>
 </div>
 

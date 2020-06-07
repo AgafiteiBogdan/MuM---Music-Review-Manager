@@ -112,40 +112,42 @@
 
 	     if (isset($_POST['send'])) {
 
-         $username =  $_SESSION['username'];
-         $id = mysqli_real_escape_string($db,$_POST['id']);
-         $comment = mysqli_real_escape_string($db,$_POST['comment']);
-         $sql = "INSERT INTO `comments` (`user_name`, `song_id`, `text`)
-                 VALUES ('$username', '$id', '$comment')";
-           mysqli_query($db, $sql);
+	     $username =  $_SESSION['username'];
+	     $id = mysqli_real_escape_string($db,$_POST['id']);
+	     $comment = mysqli_real_escape_string($db,$_POST['comment']);
+	     if(!empty($comment)) {
+	     $sql = "INSERT INTO `comments` (`user_name`, `song_id`, `text`)
+	             VALUES ('$username', '$id', '$comment')";
+	       mysqli_query($db, $sql);
+	   }
 
 
-       }
+	   }
 
-			 if(isset($_POST['favoritesong'])){
+	 if(isset($_POST['favoritesong'])){
 
-				 $username = $_SESSION['username'];
-				 $id = mysqli_real_escape_string($db,$_POST['id']);
-				 $sql = "INSERT INTO `favorite_songs` (`username`, `song_id`)
-								 VALUES ('$username', '$id')";
-					 mysqli_query($db, $sql);
+		 $username = $_SESSION['username'];
+		 $id = mysqli_real_escape_string($db,$_POST['id']);
+		 $sql = "INSERT INTO `favorite_songs` (`username`, `song_id`)
+						 VALUES ('$username', '$id')";
+			 mysqli_query($db, $sql);
 
-			 }
+	 }
 
-			 if(isset($_POST['favoriteartist'])){
+	 if(isset($_POST['favoriteartist'])){
 
-				 $username = $_SESSION['username'];
-				 $song = mysqli_real_escape_string($db,$_POST['song']);
-				 $id = mysqli_real_escape_string($db,$_POST['id']);
-				 $query = mysqli_query($db, "SELECT a.id FROM artists a join songs b on b.artist_id = a.id where b.id='$id'");
-				 while ($row = $query->fetch_assoc()){
-                 $ids = $row['id'];
-				   }
-				 $sql = "INSERT INTO `favorite_artists` (`username`, `artist_id`)
-								 VALUES ('$username', '$ids')";
-					 mysqli_query($db, $sql);
+		 $username = $_SESSION['username'];
+		 $song = mysqli_real_escape_string($db,$_POST['song']);
+		 $id = mysqli_real_escape_string($db,$_POST['id']);
+		 $query = mysqli_query($db, "SELECT a.id FROM artists a join songs b on b.artist_id = a.id where b.id='$id'");
+		 while ($row = $query->fetch_assoc()){
+         $ids = $row['id'];
+		   }
+		 $sql = "INSERT INTO `favorite_artists` (`username`, `artist_id`)
+						 VALUES ('$username', '$ids')";
+			 mysqli_query($db, $sql);
 
-			 }
+	 }
 
 	//logout
 	if(isset($_GET['logout'])) {

@@ -1,3 +1,7 @@
+
+<?php include_once ('connection.php');
+ ?>
+<style>
 <style>
 <?php include 'C:\xampp\htdocs\MuM\CSS\Songs.css'; ?>
 </style>
@@ -162,7 +166,7 @@
     </div>
     <div class="row">     
       <div style="align-self: : right; margin-right: 50px;">
-      <input type="submit" style="margin-top: 20px;" value="OK" name="ok">
+      <input type="submit" style="margin-top: 20px;" value="Send" name="send">
     </div>
     </div>  
     
