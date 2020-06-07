@@ -94,7 +94,7 @@
     <input type="hidden" id="id" name="id" required ="required" value="<?php echo $row['id'] ?>">
     <div class="row">
       <div class="col-25">
-        <label for="song">Song</label>
+        <label for="song">Song</label><button type="submit" class="fav" name="favoritesong">  <i class="fa fa-heart" onclick="this.style.color = 'red';" style=" font-size: 20px; margin-left: 5px; color:white; "></i></button>
       </div>
       <div class="col-75">
      <input type="text" id="song1" name="song" required ="required" value="<?php echo $row['song'] ?>">
@@ -102,7 +102,7 @@
     </div>
     <div class="row">
       <div class="col-25">
-        <label for="atist">Artist</label>
+        <label for="atist">Artist</label><button type="submit" class="fav" name="favoriteartist"><i class="fa fa-heart" onclick="this.style.color = 'red';" style=" font-size: 20px; margin-left: 5px; color:white; "></i></button>
       </div>
       <div class="col-75">
         <input type="text" id="artist" name="artist" required ="required" value="<?php echo $row['artist'] ?>">

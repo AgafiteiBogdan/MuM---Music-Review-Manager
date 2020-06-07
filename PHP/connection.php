@@ -132,14 +132,17 @@
 
 			 }
 
-			 if(isset($_POST['FavoriteArtist'])){
+			 if(isset($_POST['favoriteartist'])){
 
 				 $username = $_SESSION['username'];
-				 $name = mysqli_real_escape_string($db,$_POST['artist']);
-				 $sql = "SELECT id FROM artists where name = '$name'";
-				 $id = mysqli_query($db, $sql);
+				 $song = mysqli_real_escape_string($db,$_POST['song']);
+				 $id = mysqli_real_escape_string($db,$_POST['id']);
+				 $query = mysqli_query($db, "SELECT a.id FROM artists a join songs b on b.artist_id = a.id where b.id='$id'");
+				 while ($row = $query->fetch_assoc()){
+                 $ids = $row['id'];
+				   }
 				 $sql = "INSERT INTO `favorite_artists` (`username`, `artist_id`)
-								 VALUES ('$username', '$id')";
+								 VALUES ('$username', '$ids')";
 					 mysqli_query($db, $sql);
 
 			 }

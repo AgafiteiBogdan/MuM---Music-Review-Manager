@@ -316,3 +316,7 @@ input[type=submit]:hover {
    position: absolute;
    color: yellow;
 }
+.fav{
+border: none;
+background-color: #f2f2f2;
+}
