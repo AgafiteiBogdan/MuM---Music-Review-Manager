@@ -197,3 +197,23 @@ overflow: auto;
   box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.3s ease 0s;
 }
+
+.statistici{
+  margin-left:300px;
+  margin-right: 0;
+  margin-top:50px;
+}
+
+.statistici p{
+  margin: 25px;
+  font-size: 18px;
+}
+
+.statistici Button{
+  width: 100px;
+  height: 25px;
+  background-color: #6699ff;
+  color: black;
+  letter-spacing: 3px;
+
+}

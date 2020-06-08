@@ -26,7 +26,7 @@ function callBackend() {
               li.innerHTML = entry[1] + "  " +  entry[2] + "  " + entry[3];
 
               let button = document.createElement("button");
-              button.innerHTML = 'Show text';
+              button.innerHTML = 'Show comment';
               button.setAttribute('id', entry[0]);
               button.setAttribute("onClick", "showText(id)");
               li.append(button);
@@ -43,16 +43,11 @@ function callBackend() {
 
 callBackend();
 
-function test() {
-  console.log("Hello, diz is a test");
-}
 
 function showText(id) {
-  console.log("I will show text for the news with given id : " + id);
 
   news.forEach(function(entry) {
     if(entry[0] == id) {
-      console.log("I found it : " + entry[4] + " and has this id : " + entry[0]);
       let li = document.getElementById(id);
       let span = document.createElement("span");
       span.setAttribute("class", "span" + id);
@@ -71,7 +66,6 @@ function showText(id) {
 }
 
 function hideText(givenClass) {
-  console.log("I will hide element with this class : " + givenClass);
   let container = document.getElementsByClassName(givenClass);
 
   container[0].remove();
