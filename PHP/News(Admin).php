@@ -9,6 +9,7 @@
 <head>
 <title>News</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src='News(L).js' defer></script>
 </head>
 <body class="body">
 
@@ -29,7 +30,7 @@
                 <a href="My account(Admin).php" class="nav-links">My account</a>
             </li>
             <li>
-                <a href="My account.php?logout='1'" class="nav-links">Log out</a>
+              <p><a href="My account.php?logout='1'" class="nav-links">Log out</a></p>
             </li>
         </ul>
 </nav>
@@ -37,12 +38,12 @@
 <div class="sidebar" id="sidebar">
   <a class="active" href="News(Admin).php"><i class="fa fa-fire icon" id="image"></i>News</a>
   <div style="border-bottom: 1px solid  #D3D3D3;">
-  <a href="#"><i class="fa fa-microphone" id="image"></i>Artists</a>
-  <a href="#"><i class="fa fa-list-music" id="image"><i class="fa fa-archive" id="image"></i></i>Albums</a>
+  <a href="Artists(L).php"><i class="fa fa-microphone" id="image"></i>Artists</a>
+  <a href="Albums(L).php"><i class="fa fa-list-music" id="image"><i class="fa fa-archive" id="image"></i></i>Albums</a>
   <a href="Songs(Admin).php"><i class="fa fa-music" id="image"></i>Songs</a>
-  <a href="#"><i class="fa fa-calendar" id="image"></i>Year</a>
-  <a href="Genres.php"><i class="fa fa-ellipsis-v" id="image"></i>Genres</a>
-  <a href="#" style="margin-bottom: 10px"><i class="fa fa-bar-chart" id="image"></i>Statistics</a>
+  <a href="Year(L).php"><i class="fa fa-calendar" id="image"></i>Year</a>
+  <a href="Genres(L).php"><i class="fa fa-ellipsis-v" id="image"></i>Genres</a>
+  <a href="Statistics(L).php" style="margin-bottom: 10px"><i class="fa fa-bar-chart" id="image"></i>Statistics</a>
   </div>
   <div>
   <a href="#" style="margin-top: 10px; padding-left: 30px;">MY INTERESTS</a>
@@ -53,6 +54,14 @@
   </div>
 </div>
 </div>
+
+
+<div class = "comentarii" >
+
+  <ul class="news-list"></ul>
+
+</div>
+
 <script>/*script pentru afisarea ferestrei pop-up*/
 function myFunction() {
   alert("You have to be logged in!");

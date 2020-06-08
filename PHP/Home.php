@@ -49,7 +49,17 @@
     </select>
    <select  class="custom-select" name="artist" id="artist" >
       <option>Artist:</option>
-      
+      <script >
+     function showArtists() {
+  <?php  $genre = $_POST['genre'];
+   $sql = mysqli_query($db, "SELECT DISTINCT a.name FROM  artists a join songs s on a.id=s.artist_id  where s.genre = 'pop' " );
+    while ($row = $sql->fetch_assoc()){
+      $option2 = $row['name'];
+       echo "<option value='$option2'>$option2</option>";
+     }
+     ?>
+     showArtists();
+}  </script>
     </select>
     <select class="custom-select" name="song" id="song">
       <option>Song:</option>
