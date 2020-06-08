@@ -128,9 +128,17 @@
 
 		 $username = $_SESSION['username'];
 		 $id = mysqli_real_escape_string($db,$_POST['id']);
-		 $sql = "INSERT INTO `favorite_songs` (`username`, `song_id`)
-						 VALUES ('$username', '$id')";
+			 $sql = "SELECT id from favorite_songs where username = '$username' and song_id = '$id'";
+		 $result = mysqli_query($db, $sql);
+
+		 if (mysqli_num_rows($result) > 0) {
+		 	$sql = "DELETE from favorite_songs where username = '$username' and song_id = '$id'";
+	 			 mysqli_query($db, $sql);
+		 }
+		 else{
+			 $sql = "INSERT INTO favorite_songs (username, song_id) VALUES ('$username', '$id')";
 			 mysqli_query($db, $sql);
+		 }
 
 	 }
 
@@ -143,10 +151,18 @@
 		 while ($row = $query->fetch_assoc()){
          $ids = $row['id'];
 		   }
-		 $sql = "INSERT INTO `favorite_artists` (`username`, `artist_id`)
-						 VALUES ('$username', '$ids')";
-			 mysqli_query($db, $sql);
+         $sql = "SELECT id from favorite_artists where username = '$username' and artist_id = '$ids'";
+		 $result = mysqli_query($db, $sql);
 
+		 if (mysqli_num_rows($result) > 0) {
+		 	$sql = "DELETE from favorite_artists where username = '$username' and artist_id = '$ids'";
+	 			 mysqli_query($db, $sql);
+		 }
+		 else{
+			 $sql = "INSERT INTO favorite_artists (username, artist_id) VALUES ('$username', '$ids')";
+			 mysqli_query($db, $sql);
+		 }
+       
 	 }
 
 	//logout

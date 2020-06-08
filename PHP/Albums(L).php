@@ -130,7 +130,7 @@ if(isset($_POST['test'])) {
     <input type="hidden" id="id" name="id" required ="required" value="<?php echo $row['id'] ?>">
     <div class="row">
       <div class="col-25">
-        <label for="song">Song</label><button type="submit" class="fav" name="favoritesong">  <i class="fa fa-heart" onclick="this.style.color = 'red';" style=" font-size: 20px; margin-left: 5px; color:white; "></i></button>
+        <label for="song">Song</label><button type="submit" class="fav" name="favoritesong">  <i class="fa fa-heart" onclick="this.style.color = 'red';"  style=" font-size: 20px; margin-left: 5px; color:white; "></i></button>
       </div>
       <div class="col-75">
      <input type="text" id="song1" name="song" required ="required" value="<?php echo $row['song'] ?>">
@@ -261,6 +261,11 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
+}
+function changeColor(id) {
+  modal = document.getElementsByClassName("modal")[id];
+  this.style.color = 'red';
+  modal.style.display = "block";
 }
 </script>
 </body>

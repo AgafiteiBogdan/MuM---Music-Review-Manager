@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Songs</title>
+<title>My favorite artists</title>
 <meta charset="UTF-8" name="viewport" content="width-device-width, initial-scale=1"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -42,7 +42,7 @@
   <div style="border-bottom: 1px solid  #D3D3D3;">
   <a href="Artists(L).php"><i class="fa fa-microphone" id="image"></i>Artists</a>
   <a href="Albums(L).php"><i class="fa fa-list-music" id="image"><i class="fa fa-archive" id="image"></i></i>Albums</a>
-  <a href="Songs(L).php" class="active"><i class="fa fa-music" id="image"></i>Songs</a>
+  <a href="Songs(L).php"><i class="fa fa-music" id="image"></i>Songs</a>
   <a href="Year(L).php"><i class="fa fa-calendar" id="image"></i>Year</a>
   <a href="Genres(L).php"><i class="fa fa-ellipsis-v" id="image"></i>Genres</a>
   <a href="Statistics(L).php" style="margin-bottom: 10px"><i class="fa fa-bar-chart" id="image"></i>Statistics</a>
@@ -50,7 +50,7 @@
   <div>
   <a href="#" style="margin-top: 10px; padding-left: 30px;">MY INTERESTS</a>
   <a onclick="myFunction()" href="#"><i class="fa fa-play-circle" id="image"></i>My Playlists</a>
-  <a href="My favorite artists.php" ><i class="fa fa-star" id="image"></i>My favorite artists</a>
+  <a href="My favorite artists.php" class="active"><i class="fa fa-star" id="image"></i>My favorite artists</a>
   <a href="My favorite songs.php"><i class="fa fa-star" id="image"></i>My favorite songs</a>
   <a href onclick="myFunction()"href="#"><i class="fa fa-clock-o" id="image"></i>Recently Played</a>
   </div>
@@ -58,7 +58,7 @@
 
 <?php  $poz = 0;
       $username = $_SESSION['username'];
-       $sql =  "SELECT s.id as 'id' , s.name as 'song', a.name as 'artist', alb.name as 'album', alb.release_year as 'an', s.genre as 'genre' from favorite_artists fa join artists a on
+       $sql =  "SELECT s.id as 'id' , s.name as 'song', a.name as 'artist', alb.name as 'album', alb.release_year as 'year', s.genre as 'genre' from favorite_artists fa join artists a on
  fa.artist_id = a.id join songs s on s.artist_id = a.id join albums alb on alb.id = s.album_id where fa.username = '$username' order by s.id, s.name, alb.name";
  if($result = mysqli_query($db, $sql)){
     if(mysqli_num_rows($result) > 0){
@@ -92,7 +92,7 @@
     <span onclick = "closeModal(<?php echo $poz?>)" class="close" >&times;</span>
     <?php $poz = $poz + 1;?>
     <div class="container">
-  <form action="Songs(L).php" method="post">
+  <form  method="post">
     <input type="hidden" id="id" name="id" required ="required" value="<?php echo $row['id'] ?>">
     <div class="row">
       <div class="col-25">
@@ -180,9 +180,7 @@
 
         // Free result set
         mysqli_free_result($result);
-    } else{
-        echo "No records matching your query were found.";
-    }
+    } 
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
 }
