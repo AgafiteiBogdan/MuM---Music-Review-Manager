@@ -9,6 +9,7 @@
 <head>
 <title>News</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src='News(L).js' defer></script>
 </head>
 <body class="body">
 
@@ -53,6 +54,14 @@
   </div>
 </div>
 </div>
+
+
+<div class = "comentarii" >
+
+  <ul class="news-list"></ul>
+
+</div>
+
 <script>/*script pentru afisarea ferestrei pop-up*/
 function myFunction() {
   alert("You have to be logged in!");
