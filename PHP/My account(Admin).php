@@ -40,19 +40,28 @@
    <?php $query = mysqli_query($db, "SELECT max(id)+1 as id FROM artists");
          while ($row = $query->fetch_assoc()){
          $ids = $row['id'];
+           }
+         $query = mysqli_query($db, "SELECT max(id)+1 as id FROM albums");
+         while ($row = $query->fetch_assoc()){
+         $id2 = $row['id'];
+           }
+         $query = mysqli_query($db, "SELECT max(id)+1 as id FROM songs");
+         while ($row = $query->fetch_assoc()){
+         $id3 = $row['id'];
            }?>
     <img src="user.jpg" class="img"><br>
         <strong style="font-size: 40px;"><?php echo $_SESSION['username']; ?></strong>  
   <div>
   <form method="post"  class="form">
-    <input type="button" onclick = "myModal('myModal')" value="Add artist" name ="addartist"style="margin-bottom: 20px;">
-    <input type="button"  value="Add album" name="addalbum" style="margin-bottom: 20px;">
-    <input type="button" value="Add song" name="addsong">
+    <?php $poz = 0; ?>
+    <input type="button" onclick = "myModal()" value="Add artist" name ="addartist"style="margin-bottom: 20px;">
+    <input type="button" onclick = "myModal2()" value="Add album" name="addalbum" style="margin-bottom: 20px;">
+    <input type="button"onclick = "myModal3()" value="Add song" name="addsong">
   </form>
     <div class="modal" id="myModal">
                  
 <div class="modal-content">
-    <span onclick = "closeModal('myModal')" class="close" >&times;</span>
+    <span onclick = "closeModal()" class="close" >&times;</span>
    
     <div class="container">
   <form  method="post">
@@ -97,6 +106,153 @@
 </div>
 </div>
 </div>
+   <div class="modal" id="myModal2">
+                 
+<div class="modal-content">
+    <span onclick = "closeModal2()" class="close" >&times;</span>
+   
+    <div class="container">
+  <form  method="post">
+   <div class="row">
+    <div style="align-self: : right; margin-right: 50px; font-size: 30px; padding: 20px;">
+      <p>Add album</p>
+   </div>
+</div>
+    <div class="row">
+      <div class="col-25">
+        <label for="atist">ID</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="artist" name="id" required ="required" value="<?php echo $id2; ?>">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="album">Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="album" name="name" required ="required" value="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Artist id</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="artistid">
+           <?php
+    $sql = mysqli_query($db, "SELECT DISTINCT id FROM `artists` order by id" );
+    while ($row = $sql->fetch_assoc()){
+      $option1 = $row['id'];
+       echo "<option value='$option'>$option1</option>";
+    }
+
+    ?>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="year">Release year</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="year" name="year" required ="required" value="">
+    
+      </div>
+    </div> 
+     <div class="row">
+    <div class="col-75">
+    <div style="align-self: : right; margin-right: -105px;">
+      <input type="submit" style="margin-top: 20px;" value="Add" name="add2">
+    </div>
+   </div>
+</div>
+  </form>
+</div>
+</div>
+</div>
+   <div class="modal" id="myModal3">
+                 
+<div class="modal-content">
+    <span onclick = "closeModal3()" class="close" >&times;</span>
+   
+    <div class="container">
+  <form  method="post">
+   <div class="row">
+    <div style="align-self: : right; margin-right: 50px; font-size: 30px; padding: 20px;">
+      <p>Add song</p>
+   </div>
+</div>
+    <div class="row">
+      <div class="col-25">
+        <label for="atist">ID</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="artist" name="id" required ="required" value="<?php echo $id3; ?>">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="album">Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="album" name="name" required ="required" value="">
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-25">
+        <label for="country">Artist id</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="artistid">
+           <?php
+    $sql = mysqli_query($db, "SELECT DISTINCT id FROM `artists` order by id" );
+    while ($row = $sql->fetch_assoc()){
+      $option1 = $row['id'];
+       echo "<option value='$option1'>$option1</option>";
+    }
+
+    ?>
+        </select>
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-25">
+        <label for="country">Album id</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="albumid">
+           <?php
+    $sql = mysqli_query($db, "SELECT DISTINCT id FROM `albums` order by id" );
+    while ($row = $sql->fetch_assoc()){
+      $option1 = $row['id'];
+       echo "<option value='$option'>$option1</option>";
+    }
+
+    ?>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="year">Genre</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="year" name="genre" required ="required" value="">
+    
+      </div>
+    </div> 
+     <div class="row">
+    <div class="col-75">
+    <div style="align-self: : right; margin-right: -105px;">
+      <input type="submit" style="margin-top: 20px;" value="Add" name="add3">
+    </div>
+   </div>
+</div>
+  </form>
+</div>
+</div>
+</div>
 </div>   
 </div>
 
@@ -111,12 +267,30 @@ navBarToggle.addEventListener('click', function () {
 <script>
 
 function myModal(id) {
-  modal = document.getElementById(id);
+  modal = document.getElementById("myModal");
   modal.style.display = "block";
    }
 
 function closeModal(id) {
-  modal = document.getElementsById(id);
+  modal = document.getElementById("myModal");
+  modal.style.display = "none";
+   }
+function myModal2(id) {
+  modal = document.getElementById("myModal2");
+  modal.style.display = "block";
+   }
+
+function closeModal2(id) {
+  modal = document.getElementById("myModal2");
+  modal.style.display = "none";
+   }
+function myModal3(id) {
+  modal = document.getElementById("myModal3");
+  modal.style.display = "block";
+   }
+
+function closeModal3(id) {
+  modal = document.getElementById("myModal3");
   modal.style.display = "none";
    }
 

@@ -175,6 +175,30 @@
 	   mysqli_query($db, $sql);}
 	 }
 
+	 if(isset($_POST['add2'])){
+		$id = mysqli_real_escape_string($db,$_POST['id']);
+	    $name = mysqli_real_escape_string($db,$_POST['name']);
+	    $aid = mysqli_real_escape_string($db,$_POST['artistid']);
+	    $year = mysqli_real_escape_string($db,$_POST['year']);
+	    if((!empty($name)) && (!empty($year))){
+	   $sql = "INSERT INTO `albums` (`id`, `name`, `artist_id`,`release_year`)
+	               VALUES ('$id', '$name', '$aid', '$year')";
+	   mysqli_query($db, $sql);}
+	 }
+	  if(isset($_POST['add3'])){
+		$id = mysqli_real_escape_string($db,$_POST['id']);
+	    $name = mysqli_real_escape_string($db,$_POST['name']);
+	    $aid = mysqli_real_escape_string($db,$_POST['artistid']);
+	    $alid = mysqli_real_escape_string($db,$_POST['albumid']);
+	    $genre = mysqli_real_escape_string($db,$_POST['genre']);
+	    if((!empty($name)) && (!empty($year))){
+	   $sql = "INSERT INTO `albums` (`id`, `name`, `artist_id`,` album_id,` `genre`)
+	               VALUES ('$id', '$name', '$aid', '$alid')";
+	   mysqli_query($db, $sql);}
+	 }
+
+
+
 	//logout
 	if(isset($_GET['logout'])) {
 		session_destroy();
