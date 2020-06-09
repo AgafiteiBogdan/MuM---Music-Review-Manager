@@ -9,7 +9,7 @@
   </head>
   <body prefix="schema: http://schema.org">
     <header>
-      <h1>Music Review Manager</h1>
+      <h1>MuM - Ghid de utilizare</h1>
     </header>
     <div role="contentinfo">
       <dl>
@@ -31,186 +31,55 @@
         MuM sau Music Review Manager este o aplicatie care ajuta utilizatorii la gestionarea operelor muzicale in functie de mai multe criterii. Acesti utilizatori pot cauta piese noi dupa un anumit gen muzical sau de la un anume artist, pot cauta albume intregi si adauga piese noi in aplicatie. De asemnea, daca un utilizator crede ca poate imbunatatii aplicatia cu noi informatii, exista optiunea de a adauga comentarii la piese. Un alt sistem oferit de aplicatie e cel prin care se poate oferi note pieselor, si astfel va exista un rating de maxim 5 puncte.
       </p>
     </section>
+        <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+      <h2>Utilizarea aplicatiei</h2>
+      <p>
+        Toate persoanele pot folosi aplicatia MuM, chiar daca au un cont sau nu, diferenta fiind in operatiunile limitate pe care un utilizator fara cont le are.
+      </p>
+                  <p>
+        Atunci cand un utilizator acceseaza aplicatia, el este dus la pagina principala, unde are primul contact cu aplicatia si optiunea 'Search' iar apoi este trimis la pagina songs de unde poate vedea piesele aflate in sistem sau poate cauta dupa propriile criterii.
+      </p>
 
-    <section id="structure">
-      <!-- review? -->
-      <h2>Indeplinirea Sarcinilor</h2>
+      <img src="home.png" alt="home" width=100% >
 
-      <section id="Root">
-        <!-- review? -->
-        <h3>Popescu Eva-Maria</h3>
+            <p>
+        Aici e poate sa caute o piesa anume dupa anumite criterii: Artist, Albume, Numele piesei, Anul lansarii, Gen muzical sau poate accesa pagina News unde sunt ultimele piese inregistrate in sistem. In functie de ce doreste sa caute, ii va fi afisata o lista cu una sau mai multe piese.
+      </p>
+      <img src="list.png" alt="home" width=100% >
 
-      <ul>
-        <li> 02.04.2020 - Creare: Design Aplicatie:Index.html, Home.html &#10004;</li>
-        <li> 03.05.2020 - Creare: Pagina search, Pagina News &#10004;</li>
-        <li> 15.05.2020 - Creare: Butoane filtrare (Artists, Albums, Songs, Year, Genres) &#10004;</li>
-        <li> 28.05.2020 - Validare cod sursa HTML si CSS &#10004;</li>
-        <li> 07.06.2020 - Creare: Conexiune baza de date PHP &#10004;</li>
-        <li> 08.06.2020 - Integrare fisiere existente cu PHP+Javascript (Validari) &#10004;</li>
-        <li> 09.06.2020 - Flow complet user fara cont + Search + Informatii extra &#10004;</li>
-      </ul>
-      </section>
-      
+            <p>
+        Pentru mai multe informatii, utilizatorul trebuie sa apese butonul Details si o mica fereastra cu informatii despre acea piesa se deschide. In aceasta fereastra poate vedea: numele piesei, artistul, albumul din care face parte, anul lansarii, genul muzical si un text prin care i se recomanda sa-si faca un cont pentru a avea acces la mai multe optiuni ale aplicatiei.
+        De asemena, daca apasa butonul MyPlaylist sau MyFavoriteSongs, va fi afisat mesajul 'You have to be logged in!' deoarece aplicatia nu are informatii care sa fie afisate fara un cont existent in sistem.
+      </p>
+<img src="unlog.png" alt="home" width=100% >
 
-      <section id="Root">
-        <!-- review? -->
-        <h3>Bilbie Bogdan</h3>
+                  <p>
+        Astfel, utilizatorul poate apasa butonul Log In si este redirectionat la pagina prin care se poate conecta la aplicatie sau daca e cazul sa-si creeze un nou cont.
+      </p>
+<img src="log.png" alt="home" width=100% >
+<p>
+        Pentru a crea un cont, utilizatorul trebuie sa furnizeze niste informatii legate de numele si prenumele lui, o adresa de email, un nume cu care se va loga pe aplicatie si o parola.
+      </p>
+<img src="reg.png" alt="home" width=100% >
+<p>
+        Dupa inregistrare el este automat logat pe aplicatie si o poate folosi in continuare. Ca si utilizator logat, poate da un rating unei piese de maxim 5 stele si adauga un comentariu. Din aceasta fereastra el mai poate adauga piesa sau artistul la favoriti pentru a vizualiza mia tarziu aceste informatii salvate.
+      </p>
+<img src="fav.png" alt="home" width=100% >
 
-      <ul>
-        <li> 01.04.2020 - Creare: News.html &#10004;</li>
-        <li> 05.06.2020 - Adaugare validari &#10004;</li>
-        <li> 06.06.2020 - Integrare fisiere existente cu PHP+Javascript (Validari) &#10004;</li>
-        <li> 07.06.2020 - Setare sesiune user logat &#10004;</li>
-        <li> 08.06.2020 - Creare: News.html &#10004;</li>
-        <li> 09.06.2020 - Creare: Favorite.html &#10004;</li>
-      </ul>
-      </section>
-      
-
-      <section id="Root">
-        <!-- review? -->
-        <h3>Agafitei Bogdan</h3>
-
-      <ul>
-        <li> 05.06.2020 - Raport Scholarly + Tehnologii folosite &#10004;</li>
-        <li> 06.06.2020 - Use case diagram + Scenarii + Raport &#10004;</li>
-        <li> 07.06.2020 - Creare: Admin.html &#10004;</li>
-        <li> 08.06.2020 - MyAccount.html + PHP &#10004;</li>
-        <li> 09.06.2020 - Aliniere elemente in aplicatie responsive &#10004;</li>
-      </ul>
-      </section>
-      </section>
-      
-      <section id="inline">
-        <!-- review? -->
-        <h3>Proiectarea Aplicatiei</h3>
-
-	  <section id="Root">
-        <!-- review? -->
-        <h3>Diagrame</h3>
-        <p>
-
-	Primul pas in care se iau decizii importante asupra aplicatiei este realizarea diagramelor, Usecase Diagram, care definesc interactiunea cu userul si fiecare scenariu posibil in aceasta aplicatie.
-
-        </p>
-	<p>
-	Mai jos sunt prezentate scenariile de utilizare a aplicatiei si o diagrama care ne ajuta sa intelegem mai bine interactiunea cu aceasta.
-
-        </p>
-        <p>
-	A. Un utilizator neinregistrat acceseaza aplicatia:
-	
-        </p>
-	<ul>
-        	<li>1.Utilizatorul acceseaza aplicatia. </li>
-		<li> 2.Utilizatorul este directionat catre pagina principala.</li>
-		<li>3.Utilizatorul vizualizeaza pagina cu optiunile de cautare a pieselor. </li>
-		<li> 4.Utilizator vizualizeaza lista cu ultimele piese introduse in aplicatie. </li>
-		<li> 5.Utilizatorul vizualizeaza pagina cu piesele filtrate dupa anumite criterii.</li>
-
-			
-      	</ul>
-
-        <p>
-	EXTENSII
-        </p>
-	<ul>
-        	<li>3a.Utilizatorul cauta informatii suplimentare despre o piesa. </li>
-		<li> 3a1.Utilizatorul este indrumat sa-si creeze un cont.</li>
-		<li>3a1a.Utilizatorul nu are cont si va fi redirectionat catre pagina de Register. </li>	
-      	</ul>
-
-        <p>
-	B. Un utilizator inregistrat acceseaza aplicatia:        </p>
-	<ul>
-        	<li>1.Utilizatorul acceseaza aplicatia. </li>
-		<li> 2.Utilizatorul este directionat catre pagina principala.</li>
-		<li>3.Utilizatorul acceseaza pagina de Login si introduce numele de utilizator si parola. </li>
-		<li> 4.Utilizatorul vizualizeaza pagina cu optiunile de cautare a pieselor.. </li>
-		<li>  5.Utilizatorul cauta informatii suplimentare despre o piesa</li>
-		<li>6. Utilizatorul evalueaza o piesa </li>
-		<li>7.Utilizatorul adauga comentarii la o piesa </li>	
-      	</ul>
-
-        <p>
-	EXTENSII
-        </p>
-	<ul>
-        	<li>3a.Daca numele de utilizator sau parola sunt gresite, se va afisa un mesaj de eroare. </li>
-		<li> 7a.Utilizatorul este redirectionat catre platforma respectiva.</li>	
-      	</ul>
+<p>
+        Alte optiuni disponibile utilizatorului sunt cele de a vedea un playlist propriu creat de el, piesele favorite sau ultimele piese vazute.
+      </p>
 
 
-	 <!--<img src="usercase.png" alt="Diagram" width=100% >-->
-	<p>
-	Urmatoarea diagrama este cea arhitecturala si ne prezinta tehnologiile folosite si cum interactioneaza ele.
-	</p>
-	
-	<img src="arhitectura.png" alt="Diagram" width=100% >
-	
+<p>
+        De asemenea aplicatia permite si creare de conturi de tip admin, care au acces la baza de date si un panou special prin care poate adauga piese noi in sistem updata anumite date ale pieselor curente.
+      </p>
 
-	</section>
+<img src="admin.png" alt="home" width=100% >
 
+    </section>
 
-
-
-        <section id="Root">
-        <!-- review? -->
-        <h3>Baza de date</h3>
-        <p>
-          Pentru stocarea informatiilor se foloseste o baza de date MySql. Primul pas in realizarea acestei Baze de Date a fost desenarea diagramei Entitate-Relatie care ne ofera  absolut orice informatie despre tabelele ce trebuie create, coloane si chei. Mai jos este diagrama Entitate-Relatie a acestei baze de date.
-        </p>
-
-        <img src="DB.png" alt="Diagram" width=100% >
-
-        <figure typeof="schema:SoftwareSourceCode" resource="#mathblock-example"
-                id="mathblock-example" role="doc-example">
-
-          <figcaption></figcaption>
-        </figure>
-
-        <p>
-        </p>
-	
-
-	
-
-
-      </section>
-	      <section id="Root">
-        <!-- review? -->
-        <h3>Xampp - Apache</h3>
-        <p>
-	Fiecare aplicatie WEB are nevoie de un server pe care aceasta sa ruleze. Noi vom folosi aplicatia XAMPP si anume un server Apache care va rula PHP-ul din aceasta aplicatie. De asemenea, XAMPP ne ajuta si cu o baza de date MySql, care poate fi gestionata foarte usor din PHPMyAdmin.
-        </p>
-	</section>
-
-      <section id="Root">
-        <!-- review? -->
-        <h3>PHP</h3>
-        <p>
-	Pentru a face conexiunea cu Baza de Date definita mai sus, vom folosi PHP. De asemenea PHP ne ajuta la inserarea tuturor informatiilor in aceasta baza de date si preluarea lor atunci cand este nevoie. PHP mai este folosit si pentru crearea unei sesiuni de Login, si setarea de Cookies. Astfel avem anumite selectii si preferinte ale utilizatorului mereu la indemana.
-        </p>
-	</section>
-
-
-
-
-      <section id="Root">
-        <!-- review? -->
-        <h3>Javascript</h3>
-        <p>
-          Pentru partea de Frontend vom folosi Javascript, mai ales pentru validari si pop-up-uri dar si pentru anumite butoane care vor aparea doar la acei useri care sunt logati. De altfel, Javascript este folosit la majoritatea paginilor, acolo unde ultimele piese postate vor fi sortate dupa diferite criterii. Va fi implementata o pagina care la alegerea unor informatii despre o piesa, le sorteaza si le afiseaza doar pe cele dorite de user fara a fi nevoie sa dam refresh la toata pagina Web.
-        </p>
-	</section>
-
-      <section id="Root">
-        <!-- review? -->
-        <h3>Ajax</h3>
-        <p>
-          Pentru pagina News se foloseste Ajax, astfel asigurand o filtrare rapida a pieselor dupa criteriile dorite fara a fi necesar sa incarcam din nou toata pagina. In acest mod si interactiunea dintre utilizator si aplicatie este una mai prietenoasa.
-        </p>
-  </section>
+    
 
 
   </body>
