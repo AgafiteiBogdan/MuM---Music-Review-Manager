@@ -30,7 +30,7 @@
                 <a href="My account.php" class="nav-links">My account</a>
             </li>
             <li>
-              <p><a href="My account.php" class="nav-links">Log out</a></p>
+              <p><a href="Log in.php" class="nav-links">Log In</a></p>
             </li>
         </ul>
 </nav>

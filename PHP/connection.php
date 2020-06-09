@@ -165,6 +165,16 @@
        
 	 }
 
+	 if(isset($_POST['add'])){
+		$id = mysqli_real_escape_string($db,$_POST['id']);
+	    $name = mysqli_real_escape_string($db,$_POST['name']);
+	    $country = mysqli_real_escape_string($db,$_POST['country']);
+	    if((!empty($name)) && (!empty($country))){
+	   $sql = "INSERT INTO `artists` (`id`, `name`, `country`)
+	               VALUES ('$id', '$name', '$country')";
+	   mysqli_query($db, $sql);}
+	 }
+
 	//logout
 	if(isset($_GET['logout'])) {
 		session_destroy();

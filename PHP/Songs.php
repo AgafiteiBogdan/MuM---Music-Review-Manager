@@ -85,7 +85,7 @@
     <span onclick = "closeModal(<?php echo $poz?>)" class="close" >&times;</span>
     <?php $poz = $poz + 1;?>
     <div class="container">
-  <form action="Songs.php" method="post">
+  <form  method="post">
     <input type="hidden" id="id" name="id" required ="required" value="<?php echo $row['id'] ?>">
     <div class="row">
       <div class="col-25">

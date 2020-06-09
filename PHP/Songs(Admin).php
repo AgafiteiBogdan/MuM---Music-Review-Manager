@@ -2,9 +2,10 @@
 <?php include_once ('connection.php');
  ?>
 <style>
-<style>
 <?php include 'C:\xampp\htdocs\MuM\CSS\Songs.css'; ?>
 </style>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,45 +19,47 @@
      <span class="navbar-toggle" id="js-navbar-toggle">
             <i class="fa fa-bars"></i>
         </span>
-        <a href="Home.php" class="logo">MuM</a>
+        <a href="Home(Admin).php" class="logo">MuM</a>
         <ul class="main-nav" id="js-menu">
 
             <li>
-                <a href="Home.php" class="nav-links">Home</a>
+                <a href="Home(Admin).php" class="nav-links">Home</a>
             </li>
             <li>
-                <a href="News.php" class="nav-links">News</a>
+                <a href="News(Admin).php" class="nav-links">News</a>
             </li>
             <li>
-                <a href="My account.php" class="nav-links">My account</a>
+                <a href="My account(Admin).php" class="nav-links">My account</a>
             </li>
             <li>
-                <a href="Log out.php" class="nav-links">Log out</a>
+              <p><a href="My account.php?logout='1'" class="nav-links">Log out</a></p>
             </li>
         </ul>
 </nav>
 <div class="flex-container">
 <div class="sidebar" id="sidebar">
-  <a href="News.php"><i class="fa fa-fire icon" id="image"></i>News</a>
+  <a href="News(Admin).php"><i class="fa fa-fire icon" id="image"></i>News</a>
   <div style="border-bottom: 1px solid  #D3D3D3;">
-  <a href="#"><i class="fa fa-microphone" id="image"></i>Artists</a>
-  <a href="#"><i class="fa fa-list-music" id="image"><i class="fa fa-archive" id="image"></i></i>Albums</a>
+  <a href="Artists(Admin).php"><i class="fa fa-microphone" id="image"></i>Artists</a>
+  <a href="Albums(Admin).php"><i class="fa fa-list-music" id="image"><i class="fa fa-archive" id="image"></i></i>Albums</a>
   <a href="Songs(Admin).php" class="active"><i class="fa fa-music" id="image"></i>Songs</a>
-  <a href="#"><i class="fa fa-calendar" id="image"></i>Year</a>
-  <a href="#"><i class="fa fa-ellipsis-v" id="image"></i>Genres</a>
-  <a href="#" style="margin-bottom: 10px"><i class="fa fa-bar-chart" id="image"></i>Statistics</a>
+  <a href="Year(Admin).php"><i class="fa fa-calendar" id="image"></i>Year</a>
+  <a href="Genres(Admin).php"><i class="fa fa-ellipsis-v" id="image"></i>Genres</a>
+  <a href="Statistics(Admin).php" style="margin-bottom: 10px"><i class="fa fa-bar-chart" id="image"></i>Statistics</a>
   </div>
   <div>
   <a href="#" style="margin-top: 10px; padding-left: 30px;">MY INTERESTS</a>
   <a onclick="myFunction()" href="#"><i class="fa fa-play-circle" id="image"></i>My Playlists</a>
-  <a href="My favorite artists" ><i class="fa fa-star" id="image"></i>My favorite artists</a>
-  <a href="My favorite songs.php"><i class="fa fa-star" id="image"></i>My favorite songs</a>
+  <a href="My favorite artists(Admin).php" ><i class="fa fa-star" id="image"></i>My favorite artists</a>
+  <a href="My favorite songs(Admin).php"><i class="fa fa-star" id="image"></i>My favorite songs</a>
   <a href onclick="myFunction()"href="#"><i class="fa fa-clock-o" id="image"></i>Recently Played</a>
   </div>
 </div>
-<?php
-  require 'update.php';
-                   $sql =  "SELECT a.id as 'id', a.name as 'song', b.name as 'artist', c.name as 'album', c.release_year as 'year', a.genre as 'genre'from artists b join albums c on b.id=c.artist_id  join Songs a on c.id = a.album_id order by a.id, b.name, c.name;";
+
+<?php  
+      require 'update.php';
+       $poz = 0;
+       $sql =  "SELECT a.id as 'id', a.name as 'song', b.name as 'artist', c.name as 'album', c.release_year as 'year', a.genre as 'genre'from artists b join albums c on b.id=c.artist_id  join Songs a on c.id = a.album_id order by a.id, b.name, c.name";
  if($result = mysqli_query($db, $sql)){
     if(mysqli_num_rows($result) > 0){
       ?>
@@ -81,20 +84,19 @@
                 <td data-target="album"><?php echo $row['album'] ?></td>
                 <td data-target="genre"><?php echo $row['genre'] ?></td>
                  <td>
-                  <button data-id = "<?php echo $row['id'] ?>" style="color:white;  border: none; background-color: #FF4500;  padding: 10px 20px;" type="button" name="Button" onclick = "myModal(<?php echo $row['id'] - 1?>)">Details</button></td>
-
+                  <button data-id = "<?php echo $row['id'] ?>" style="color:white;  border: none; background-color: #FF4500;  padding: 10px 20px;" type="button" name="Button" onclick = "myModal(<?php echo $poz?>)">Details</button></td>
 
       <div class="modal" id="myModal">
 
 <div class="modal-content">
-
-    <span onclick = "closeModal(<?php echo $row['id'] - 1?>)" class="close" >&times;</span>
+    <span onclick = "closeModal(<?php echo $poz?>)" class="close" >&times;</span>
+    <?php $poz = $poz + 1;?>
     <div class="container">
-  <form action="Songs(Admin).php" method="post">
+  <form  method="post">
     <input type="hidden" id="id" name="id" required ="required" value="<?php echo $row['id'] ?>">
     <div class="row">
       <div class="col-25">
-        <label for="song">Song</label>
+        <label for="song">Song</label><button type="submit" class="fav" name="favoritesong">  <i class="fa fa-heart" onclick="this.style.color = 'red';" style=" font-size: 20px; margin-left: 5px; color:white; "></i></button>
       </div>
       <div class="col-75">
      <input type="text" id="song1" name="song" required ="required" value="<?php echo $row['song'] ?>">
@@ -102,7 +104,7 @@
     </div>
     <div class="row">
       <div class="col-25">
-        <label for="atist">Artist</label>
+        <label for="atist">Artist</label><button type="submit" class="fav" name="favoriteartist"><i class="fa fa-heart" onclick="this.style.color = 'red';" style=" font-size: 20px; margin-left: 5px; color:white; "></i></button>
       </div>
       <div class="col-75">
         <input type="text" id="artist" name="artist" required ="required" value="<?php echo $row['artist'] ?>">
@@ -164,12 +166,11 @@
         <textarea id="subject" name="comment" placeholder="Write something.." style="height:100px;"></textarea>
       </div>
     </div>
-    <div class="row">
+     <div class="row">
       <div style="align-self: : right; margin-right: 50px;">
       <input type="submit" style="margin-top: 20px;" value="Send" name="send">
     </div>
     </div>
-
   </form>
 </div>
 
@@ -191,7 +192,6 @@
 </div>
 </div>
 </div>
-
 
 <script>/*script pentru afisarea ferestrei pop-up*/
 function myFunction() {

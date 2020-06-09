@@ -32,44 +32,15 @@
 </nav>
 <div class="flex-container">
     <div style="margin-right: 200px;">
-  <p style class="Text1">Find music </p>
-  <p style class="Text2">you love.</p>
+  <p style class="Text1">Find music you'll love</p>
     </div>
    <div class="form" method="post" style="width: 700px; margin-left: 50px;" >
-  <form  method="post" action="Home.php">
-    <select class="custom-select " name="genre" id="genre">
-      <option>Categories:</option>
-    <?php
-      $sql = mysqli_query($db, "SELECT DISTINCT genre FROM `songs` where genre != '$genre' order by genre" );
-    while ($row = $sql->fetch_assoc()){
-      $option1 = $row['genre'];
-       echo "<option value='$option1'>$option1</option>";
-     }
-    ?>
-    </select>
-   <select  class="custom-select" name="artist" id="artist" >
-      <option>Artist:</option>
-      <script >
-     function showArtists() {
-  <?php  $genre = $_POST['genre'];
-   $sql = mysqli_query($db, "SELECT DISTINCT a.name FROM  artists a join songs s on a.id=s.artist_id  where s.genre = 'pop' " );
-    while ($row = $sql->fetch_assoc()){
-      $option2 = $row['name'];
-       echo "<option value='$option2'>$option2</option>";
-     }
-     ?>
-     showArtists();
-}  </script>
-    </select>
-    <select class="custom-select" name="song" id="song">
-      <option>Song:</option>
-
-    </select>
-   <input type="submit" value="Submit" name="submit" >
+  <form  method="post" action="Songs(L).php">
+   <input type="submit" value="Search" name="submit" >
    </form>
    </div>
 </div>
-<script>
+<script> 
 let mainNav = document.getElementById('js-menu');
 let navBarToggle = document.getElementById('js-navbar-toggle');
 

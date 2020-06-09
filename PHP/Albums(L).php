@@ -17,7 +17,7 @@
      <span class="navbar-toggle" id="js-navbar-toggle">
             <i class="fa fa-bars"></i>
         </span>
-        <a href="Home.php" class="logo">MuM</a>
+        <a href="Home(L).php" class="logo">MuM</a>
         <ul class="main-nav" id="js-menu">
 
             <li>
@@ -53,7 +53,6 @@
   <a href onclick="myFunction()"href="#"><i class="fa fa-clock-o" id="image"></i>Recently Played</a>
   </div>
 </div>
-  <?php include 'update.php'?>
   <div>
    <form style="width:1500px;" method="POST">
      <select class="custom-select"  name="album" id="gen" required="required">

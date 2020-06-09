@@ -94,51 +94,21 @@ display: block;
 }
 
 .Text1 { 
-
 font-size: 90px;
 color: white;
-}
-
-.Text2 {  
-margin-bottom: 40px;
-font-size: 90px;
-color: white;
-}
-
-.custom-select {
-width: 70%;
-height: 70px;
-padding: 12px 20px;
-margin: 15px 0;
-display: inline-block;
-border: 1px solid #ccc;
-border-radius: 25px;
-box-sizing: border-box;
-opacity: 0.5;
-font-size: 16px;
-
-
-}   
-
-select option{
-  width: 40%;
-  padding: 16px 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: #f1f1f1;
 
 }
-
 
 input[type=submit] {
-width: 70%;
+width: 60%;
 height: 60px;
 background-color: #4CAF50;
 color: white;
 padding: 14px 20px;
-margin: 8px 0;
+margin-top: 60px;
+margin-left: 160px;
 border: none;
- border-radius: 25px;
+border-radius: 25px;
 cursor: pointer;
 font-size: 16px;
 }
@@ -152,8 +122,8 @@ overflow: auto;
 display: flex;
 flex-wrap: wrap;
 margin-right: auto;
-margin-top: 140px;
-margin-left: 100px;
+margin-top: 220px;
+margin-left: 350px;
 
 }
 

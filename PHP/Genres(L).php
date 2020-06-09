@@ -53,7 +53,6 @@
   <a href onclick="myFunction()"href="#"><i class="fa fa-clock-o" id="image"></i>Recently Played</a>
   </div>
 </div>
-  <?php include 'update.php'?>
   <div>
    <form style="width:1500px;" method="POST">
      <select class="custom-select"  name="gen" id="gen" required="required">

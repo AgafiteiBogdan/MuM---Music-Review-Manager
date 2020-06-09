@@ -17,7 +17,7 @@
      <span class="navbar-toggle" id="js-navbar-toggle">
             <i class="fa fa-bars"></i>
         </span>
-        <a href="Home.php" class="logo">MuM</a>
+        <a href="Home(L).php" class="logo">MuM</a>
         <ul class="main-nav" id="js-menu">
            
             <li>
